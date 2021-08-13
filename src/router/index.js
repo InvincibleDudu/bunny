@@ -1,11 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Test from '../views/Test.vue'
+import Upload from '../views/Upload.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+    {
+    path: '/test',
+    name: 'Test',
+    component: Test
+  },
+   {
+    path: '/upload',
+    name: 'upload',
+    component: Upload
   },
   {
     path: '/about',
