@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Test from '../views/Test.vue'
 import Upload from '../views/Upload.vue'
+import Calc from '../views/Calc'
 
 const routes = [
   {
@@ -18,6 +19,10 @@ const routes = [
     path: '/upload',
     name: 'upload',
     component: Upload
+  },   {
+    path: '/calc',
+    name: 'calc',
+    component: Calc
   },
   {
     path: '/about',
