@@ -13,6 +13,7 @@
     "element-plus": "^1.0.2-beta.70",
     "video-to-audio": "^1.0.1",
     "vue": "^3.2.2",
+    "vue-i18n": "^8.25.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },

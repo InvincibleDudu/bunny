@@ -13,3 +13,8 @@ export function getReadableTime(time) {
       ("0" + m.getSeconds()).slice(-2) + "-" +
       ("0" + m.getMilliseconds()).slice(-3))
 }
+
+export function toFixedNumber(num, digits, base){
+   const pow = Math.pow(base || 10, digits)
+   return Math.round(num*pow) / pow;
+}
