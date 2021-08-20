@@ -13,7 +13,6 @@
       <div class="input ppi">
          <span class="label">Res：</span>
          <el-popover
-            ref="popover"
             title="Common Res"
             :width="200"
             trigger="focus"
@@ -38,8 +37,7 @@
       <div class="input ppi">
          <span class="label">Size：</span>
          <el-popover
-            ref="popover"
-            title="Common Res"
+            title="Common Size"
             :visible="popVisible2"
             :width="256"
             trigger="focus"

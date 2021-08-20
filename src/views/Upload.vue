@@ -18,11 +18,11 @@
 </template>
 
 <script setup>
-import {onMounted, ref, onUnmounted} from "vue"
+import { onMounted, ref, onUnmounted } from "vue"
 import VideoToAudio from 'video-to-audio'
-import {ElLoading, ElMessage, ElMessageBox} from 'element-plus'
+import { ElLoading, ElMessage, ElMessageBox } from 'element-plus'
 import axios from 'axios'
-import {getReadableTime} from '@/util/util'
+import { getReadableTime } from '@/util/util'
 
 const url = ref('http://localhost/api/upload?userId=x&fileType=')
 const fileType = ref('')
@@ -100,7 +100,7 @@ async function convertToAudio(sourceVideoFile) {
    // downloadAudio(convertedAudioDataObj)
    console.log(convertedAudioDataObj)
    let file = await fetch(convertedAudioDataObj.data).then(r => r.blob())
-      .then(blobFile => new File([blobFile], convertedAudioDataObj.name + getReadableTime() + '.wav', {type: "audio/wav"}))
+      .then(blobFile => new File([blobFile], convertedAudioDataObj.name + getReadableTime() + '.wav', { type: "audio/wav" }))
    const res = await fileUpload(file)
    console.log(res.data)
    ElMessageBox.alert(res.data.flash_result[0].text, '识别结果', {

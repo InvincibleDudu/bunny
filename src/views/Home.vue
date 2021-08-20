@@ -1,14 +1,12 @@
 <template>
   <div class="home">
+     <p>{{ t("message.hello") }}</p>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
+<script setup>
+import { useI18n } from "vue-i18n"
 
-export default {
-  name: 'Home',
-  components: {
-  }
-}
+const { t } = useI18n()
+
 </script>
