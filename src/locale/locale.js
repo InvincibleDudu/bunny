@@ -1,16 +1,22 @@
 import en from '@/locale/en'
 import zhCN from '@/locale/zh-CN'
-import {createI18n} from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 
 export const messages = {
-   "en": {...en},
-   "zh-CN": {...zhCN}
+   // "en": { ...en },
+   en: {en: 'English', 'zh-CN': 'sChinese'},
+   "zh-CN": { ...zhCN }
 }
 
-export const i18n = createI18n({
-   locale: navigator.language, // set locale
+export default createI18n({
+   locale: localStorage.getItem('locale') || navigator.language, // set locale
    fallbackLocale: 'en', // set fallback locale
    legacy: false,
    globalInjection: true,
+   // silentFallbackWarn: true,
+   // silentTranslationWarn: true,
+   formatFallbackMessages: true,
+   // fallbackWarn: false,
+   // missingWarn: false,
    messages, // set locale messages
 })

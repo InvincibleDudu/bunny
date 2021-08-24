@@ -10,7 +10,7 @@
       v-loading.fullscreen.lock="fullscreenLoading"
    >
       <i class="el-icon-upload"></i>
-      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+      <div class="el-upload__text" v-html="t('Drag your file(s) here or <em>Click Here to Upload</em>')"></div>
       <template #tip>
          <div class="el-upload__tip">.mp4, .avi, .mov, mp3, aac, wav</div>
       </template>
@@ -18,11 +18,14 @@
 </template>
 
 <script setup>
-import { onMounted, ref, onUnmounted } from "vue"
+import { onMounted, onUnmounted, ref } from "vue"
 import VideoToAudio from 'video-to-audio'
 import { ElLoading, ElMessage, ElMessageBox } from 'element-plus'
 import axios from 'axios'
 import { getReadableTime } from '@/util/util'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const url = ref('http://localhost/api/upload?userId=x&fileType=')
 const fileType = ref('')
@@ -64,7 +67,7 @@ function beforeUpload(file) {
       console.log('invalid file type')
       ElMessage({
          showClose: true,
-         message: '无效文件类型',
+         message: t('Unsupported File Type'),
          type: 'error'
       })
    }
@@ -93,7 +96,7 @@ async function convertToAudio(sourceVideoFile) {
    // console.log(event)
    const loading = ElLoading.service({
       lock: true,
-      text: '检测到视频文件，转换并识别中...'
+      text: t('Video File Detected, Converting and Recognizing...')
    })
    const format = 'wav'
    let convertedAudioDataObj = await VideoToAudio.convert(sourceVideoFile, format)

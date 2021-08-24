@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-     <p>{{ t("message.hello") }}</p>
+     <p>{{ t('Hello') }}</p>
+     <p>{{ t('Intro') }}</p>
   </div>
 </template>
 
