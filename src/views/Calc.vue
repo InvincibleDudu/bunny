@@ -9,11 +9,11 @@
          <span class="label">BtK：</span>
          <el-input-number v-model="btk" :min="1" :max="50"></el-input-number>
       </div>
-      <span class="result">{{ ((rof) ? ttkResult + ' ms' : 'Result Here') }}</span>
+      <span class="result">{{ ((rof) ? ttkResult + ' ms' : t('Result Here')) }}</span>
       <div class="input ppi">
-         <span class="label">Res：</span>
+         <span class="label">{{ t('Resolution') + t(':')}}</span>
          <el-popover
-            title="Common Res"
+            :title="t('Common Res')"
             :width="200"
             trigger="focus"
             :visible="popVisible1"
@@ -35,18 +35,18 @@
       </div>
 
       <div class="input ppi">
-         <span class="label">Size：</span>
+         <span class="label">{{ t('Size') + t(':')}}</span>
          <el-popover
-            title="Common Size"
+            :title="t('Common Size')"
             :visible="popVisible2"
             :width="256"
             trigger="focus"
          >
             <el-menu :default-active="'1'" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-               <el-menu-item index="1">Phone</el-menu-item>
-               <el-menu-item index="2">Laptop</el-menu-item>
-               <el-menu-item index="3">Monitor</el-menu-item>
-               <el-menu-item index="4">TV</el-menu-item>
+               <el-menu-item index="1">{{ t('Phone') }}</el-menu-item>
+               <el-menu-item index="2">{{ t('Laptop') }}</el-menu-item>
+               <el-menu-item index="3">{{ t('Monitor') }}</el-menu-item>
+               <el-menu-item index="4">{{ t('TV') }}</el-menu-item>
             </el-menu>
             <div class="pop-container" v-if="activeTab === '1'">
                <div @click="handleCommonSize(4)">4</div>
@@ -85,13 +85,16 @@
             </template>
          </el-popover>
       </div>
-      <span class="result">{{ (size) ? ppiResult + ' ' : 'Result Here' }}</span>
+      <span class="result">{{ (size) ? ppiResult + ' ' : t('Result Here') }}</span>
    </div>
 </template>
 
 <script setup>
 import {ref, computed, onMounted} from 'vue'
 import {toFixedNumber} from '@/util/util'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const rof = ref('')
 const btk = ref(0)
@@ -142,7 +145,7 @@ function handleCommonSize(commonSize) {
    popVisible2.value = false
 }
 
-function handleSelect(key, keyPath) {
+function handleSelect(key) {
    activeTab.value = key
 }
 
@@ -162,7 +165,7 @@ onMounted(() => {
 }
 
 .label {
-   width: 4rem;
+   width: 10rem;
 }
 
 .input {

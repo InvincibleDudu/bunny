@@ -10,8 +10,11 @@ import {
    ElMenuItem,
    ElDropdown,
    ElDropdownItem,
-   ElDropdownMenu
+   ElDropdownMenu,
+   ElResult
 } from 'element-plus'
+// import {  } from '@element-plus/icons'
+// import { Avatar } from '@element-plus/icons'
 
 export default (app) => {
    app.use(ElButton)
@@ -26,5 +29,7 @@ export default (app) => {
    app.use(ElDropdown)
    app.use(ElDropdownItem)
    app.use(ElDropdownMenu)
+   app.use(ElResult)
+   // app.use(Avatar)
    // app.use(ElMessage)
 }

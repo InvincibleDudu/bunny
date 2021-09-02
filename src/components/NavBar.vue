@@ -6,7 +6,7 @@
          <el-menu-item index="/upload">{{ t('Upload') }}</el-menu-item>
          <el-menu-item index="/calc">{{ t('Calc') }}</el-menu-item>
          <el-menu-item index="/about">{{ t('About') }}</el-menu-item>
-         <el-menu-item class="language-dropdown">
+         <el-menu-item class="language-dropdown float-right">
             <el-dropdown @command="handleCommand">
               <span class="el-dropdown-link">
                 {{ t(locale) }}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -20,11 +20,16 @@
                         :value="avaLocale"
                         :command="avaLocale"
                      >
-                        {{ t( avaLocale) }}
+                        {{ t(avaLocale) }}
                      </el-dropdown-item>
                   </el-dropdown-menu>
                </template>
             </el-dropdown>
+         </el-menu-item>
+         <el-menu-item index="/profile" class="float-right avatar-item">
+            <div class="avatar">
+               <Avatar/>
+            </div>
          </el-menu-item>
       </el-menu>
    </nav>
@@ -33,6 +38,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useI18n } from "vue-i18n"
+import { Avatar } from '@element-plus/icons'
 
 /**
  * Created by InvincibleDudu on 2021/8/24 at 17:28
@@ -48,17 +54,22 @@ function handleSelect(key) {
 const handleCommand = (command) => {
    locale.value = command
    localStorage.setItem('locale', locale.value)
-};
-
+}
 
 </script>
 
 
 <style scoped>
 .language-dropdown {
-   float: right !important;
-   min-width: 12rem;
    text-align: right;
+}
+
+.float-right {
+   float: right !important;
+}
+
+.avatar-item {
+   padding: 0;
 }
 
 .language-dropdown-item {
@@ -74,5 +85,11 @@ const handleCommand = (command) => {
 .el-menu-item {
    font-size: 17px;
    font-weight: bold;
+}
+
+.avatar {
+   width: 3rem;
+   height: 3rem;
+   border-radius: 50%;
 }
 </style>
