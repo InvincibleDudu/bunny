@@ -6,7 +6,7 @@
          <el-menu-item index="/upload">{{ t('Upload') }}</el-menu-item>
          <el-menu-item index="/calc">{{ t('Calc') }}</el-menu-item>
          <el-menu-item index="/about">{{ t('About') }}</el-menu-item>
-         <el-menu-item class="language-dropdown float-right">
+         <el-menu-item index="/InvincibleDudu" class="language-dropdown float-right">
             <el-dropdown @command="handleCommand">
               <span class="el-dropdown-link">
                 {{ t(locale) }}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -91,5 +91,9 @@ const handleCommand = (command) => {
    width: 3rem;
    height: 3rem;
    border-radius: 50%;
+}
+
+.el-menu {
+   display: block;
 }
 </style>

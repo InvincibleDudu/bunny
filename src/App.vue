@@ -1,13 +1,24 @@
 <template>
    <!--   <img src="./assets/logo.png" alt="logo"/>-->
-   <NavBar/>
-   <main>
-      <router-view/>
-   </main>
+   <el-config-provider :locale="locale === 'zh-CN' ? zhCn : null">
+      <NavBar v-if="store.state.nav"/>
+      <main>
+         <router-view/>
+      </main>
+   </el-config-provider>
 </template>
 
 <script setup>
-import NavBar from '@/components/NavBar'</script>
+import NavBar from '@/components/NavBar'
+import { useStore } from "vuex";
+import { ref } from 'vue'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import { useI18n } from 'vue-i18n'
+
+const store = useStore()
+const { locale } = useI18n()
+
+</script>
 
 <style scoped>
 

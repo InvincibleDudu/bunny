@@ -1,4 +1,5 @@
 <template>
+<!--   <NavBar/>-->
    <el-upload
       class="upload-demo pt"
       drag
@@ -24,6 +25,8 @@ import { ElLoading, ElMessage, ElMessageBox } from 'element-plus'
 import axios from 'axios'
 import { getReadableTime } from '@/util/util'
 import { useI18n } from 'vue-i18n'
+import NavBar from '@/components/NavBar'
+
 
 const { t } = useI18n()
 

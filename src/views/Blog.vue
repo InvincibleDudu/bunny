@@ -1,4 +1,5 @@
 <template>
+<!--   <NavBar/>-->
    <article>
       <h1>{{ t('Article here?') }}</h1>
       <h2>What is Lorem Ipsum?</h2>
@@ -46,6 +47,7 @@
 <script setup>
 import { useI18n } from "vue-i18n"
 import l from 'lodash'
+import NavBar from '@/components/NavBar'
 
 /**
  * Created by InvincibleDudu on 2021/8/24 at 17:07
@@ -53,45 +55,6 @@ import l from 'lodash'
 
 const { t } = useI18n()
 
-const a = [{
-   "id": "362AB789-1B99-4F9E-8094-2B6AC5B3131C",
-   "disk_path": "/",
-   "disk_name": "Chenyf_不同磁盘类型_windows动态_G2OF_DYR4_OTPU_L32T.vhdx",
-   "total": "20480",
-   "format": null,
-   "boot_index": 1,
-   "is_same": 1,
-   "name": "Chenyf_不同磁盘类型_windows动态_G2OF_DYR4_OTPU_L32T",
-   "suffix": "vhdx",
-   "disk_provision_type": 0
-}, {
-   "id": "5757FAEB-1565-47FE-9E1F-A68E5488E8DA",
-   "disk_path": "/",
-   "disk_name": "新建虚拟硬盘_0BQW.vhd",
-   "total": "2048",
-   "format": null,
-   "boot_index": 2,
-   "is_same": 1,
-   "name": "11",
-   "suffix": "vhd",
-   "disk_provision_type": 0
-}, {
-   "id": "CE2C96E4-43D0-4721-9D99-BBB76C548D93",
-   "disk_path": "/",
-   "disk_name": "新建虚拟硬盘_HIEW.vhdx",
-   "total": "20480",
-   "format": null,
-   "boot_index": 3,
-   "is_same": 1,
-   "name": "112",
-   "suffix": "vhdx",
-   "disk_provision_type": 0
-}]
-
-const b = l.uniqBy(a, 'name')
-
-console.log(a, b)
-console.log(a === b)
 </script>
 
 

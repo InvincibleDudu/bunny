@@ -1,4 +1,4 @@
-import {
+import El, {
    ElButton,
    ElUpload,
    ElLoading,
@@ -11,7 +11,7 @@ import {
    ElDropdown,
    ElDropdownItem,
    ElDropdownMenu,
-   ElResult
+   ElResult, ElFormItem, ElForm, ElDescriptions, ElDescriptionsItem, ElConfigProvider, ElDatePicker, ElCheckbox
 } from 'element-plus'
 // import {  } from '@element-plus/icons'
 // import { Avatar } from '@element-plus/icons'
@@ -30,6 +30,14 @@ export default (app) => {
    app.use(ElDropdownItem)
    app.use(ElDropdownMenu)
    app.use(ElResult)
+   app.use(ElForm)
+   app.use(ElFormItem)
+   app.use(ElDescriptions)
+   app.use(ElDescriptionsItem)
+   app.use(ElConfigProvider)
+   app.use(ElDatePicker)
+   app.use(ElCheckbox)
+   // app.use(El)
    // app.use(Avatar)
    // app.use(ElMessage)
 }

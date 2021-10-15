@@ -8,7 +8,7 @@ export default {
    Cancel: '取消',
    Success: '成功',
    Warning: '警告',
-   Back: '',
+   Back: '返回',
 
    // punctuation
    '! ': '！',
@@ -45,6 +45,7 @@ export default {
    Size: '尺寸',
    'Common Res': '常见分辨率',
    'Common Size': '常见尺寸',
+   'Font Weight: ': '字重：',
 
    // error
    'Not Found': '页面未找到🤷‍♂️',
@@ -52,4 +53,19 @@ export default {
    'Server Error': '服务器错误',
    'Unknown Error': '未知错误',
 
+   // profile
+   Username: '用户名',
+   'Phone Number': '手机号',
+   Email: '邮箱',
+   Password: '密码',
+   Register: '注册',
+
+   // register
+   'What Should We Call You?': '我们该怎么称呼你？',
+   'Name should be within 3 to 18 characters': '昵称需要在3到18个字符之间',
+   'Set a Password!': '记得设一个密码',
+   'You need a Email in case you forget your Password!': '请输入邮箱',
+   'I have read and agree to the ': '我已阅读并同意',
+   EULA: '用户协议',
+   'You Need to Agree to Our EULA!': '需要同意用户协议',
 }

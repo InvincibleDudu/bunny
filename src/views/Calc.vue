@@ -1,4 +1,5 @@
 <template>
+<!--   <NavBar/>-->
    <div class="container">
       <div id="dpi" style="height: 1in; width: 1in; left: 100%; position: fixed; top: 100%;"></div>
       <div class="input">
@@ -81,18 +82,23 @@
                <div @click="handleCommonSize(75)">75</div>
             </div>
             <template #reference>
-               <el-input-number v-model="size" :min="0.1" :max="200" :step="0.5" @click="popVisible2 = !popVisible2"></el-input-number>
+               <el-input-number v-model="size" :min="0.1" :max="200" :step="0.5"
+                                @click="popVisible2 = !popVisible2"></el-input-number>
             </template>
          </el-popover>
       </div>
       <span class="result">{{ (size) ? ppiResult + ' ' : t('Result Here') }}</span>
    </div>
+   <ElButton @click="fontWeight += 50">+</ElButton>
+   <div class="weight">{{ t('Font Weight: ') + fontWeight }}</div>
+   <ElButton @click="fontWeight -= 50">-</ElButton>
 </template>
 
 <script setup>
 import {ref, computed, onMounted} from 'vue'
 import {toFixedNumber} from '@/util/util'
 import { useI18n } from 'vue-i18n'
+import NavBar from '@/components/NavBar'
 
 const { t } = useI18n()
 
@@ -106,6 +112,7 @@ const ppiResult = computed(() => (Math.sqrt(vertical.value ** 2 + horizontal.val
 const activeTab = ref('1')
 const popVisible1 = ref(false)
 const popVisible2 = ref(false)
+const fontWeight = ref(400)
 
 function handleInputChange(e) {
    console.log(e, rof)
@@ -207,6 +214,10 @@ onMounted(() => {
    place-items: center;
    cursor: pointer;
    color: rgb(20, 120, 248);
+}
+
+.weight {
+   font-weight: v-bind(fontWeight);
 }
 </style>
 
