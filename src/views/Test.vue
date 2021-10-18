@@ -25,12 +25,6 @@ const count = computed(() => store.state.count)
 </script>
 
 
-<script>
-
-
-</script>
-
-
 <style scoped>
 button {
   color: v-bind(color);

@@ -6,7 +6,12 @@
          <el-menu-item index="/upload">{{ t('Upload') }}</el-menu-item>
          <el-menu-item index="/calc">{{ t('Calc') }}</el-menu-item>
          <el-menu-item index="/about">{{ t('About') }}</el-menu-item>
-         <el-menu-item index="/InvincibleDudu" class="language-dropdown float-right">
+         <el-menu-item index="/profile" class="avatar-item float-right">
+            <div class="avatar">
+               <Avatar/>
+            </div>
+         </el-menu-item>
+         <el-menu-item index="/InvincibleDudu" class="language-dropdown">
             <el-dropdown @command="handleCommand">
               <span class="el-dropdown-link">
                 {{ t(locale) }}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -26,11 +31,15 @@
                </template>
             </el-dropdown>
          </el-menu-item>
-         <el-menu-item index="/profile" class="float-right avatar-item">
-            <div class="avatar">
-               <Avatar/>
-            </div>
-         </el-menu-item>
+<!--         <el-sub-menu index="2">-->
+<!--            <template #title>{{ t(locale) }}</template>-->
+<!--            <el-menu-item-->
+<!--                v-for="avaLocale in availableLocales"-->
+<!--                :index="'locale' + avaLocale"-->
+<!--            >-->
+<!--               {{ t(avaLocale) }}-->
+<!--            </el-menu-item>-->
+<!--         </el-sub-menu>-->
       </el-menu>
    </nav>
 </template>
@@ -48,7 +57,11 @@ const { t, locale, availableLocales } = useI18n()
 const router = useRouter()
 
 function handleSelect(key) {
-   router.push(key)
+   console.log('key? ', key)
+   if (key.includes('locale'))
+      handleCommand(key.substring(6))
+   else
+      router.push(key)
 }
 
 const handleCommand = (command) => {
@@ -65,7 +78,8 @@ const handleCommand = (command) => {
 }
 
 .float-right {
-   float: right !important;
+   /*float: right !important;*/
+   margin-left: auto !important;
 }
 
 .avatar-item {
@@ -93,7 +107,7 @@ const handleCommand = (command) => {
    border-radius: 50%;
 }
 
-.el-menu {
-   display: block;
-}
+/*.el-menu {*/
+/*   display: block;*/
+/*}*/
 </style>

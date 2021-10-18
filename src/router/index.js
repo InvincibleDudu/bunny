@@ -5,8 +5,9 @@ import Upload from '../views/Upload.vue'
 import Calc from '../views/Calc'
 import Blog from '../views/Blog'
 import Error from '../views/Error'
-import Register from '../views/Register'
-import Profile from '../views/Profile'
+import Register from '../views/User/Register'
+import Profile from '../views/User/Profile'
+import Login from '../views/User/Login'
 
 const routes = [
    { path: '/', name: 'Home', component: Home },
@@ -16,6 +17,7 @@ const routes = [
    { path: '/blog', name: 'blog', component: Blog },
    { path: '/register', name: 'register', component: Register },
    { path: '/profile', name: 'profile', component: Profile },
+   { path: '/login', name: 'Login', component: Login },
    { path: '/about', name: 'About',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

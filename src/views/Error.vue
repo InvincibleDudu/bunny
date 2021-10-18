@@ -1,5 +1,5 @@
 <template>
-   <el-result :title="errorCode" :subTitle="msg">
+   <el-result :title="errorCode.toString()" :subTitle="msg">
       <template #extra>
          <el-button size="medium" @click="$router.push('/')">{{ t('Home') }}</el-button>
       </template>
@@ -18,15 +18,15 @@ const { t } = useI18n()
 
 const props = defineProps({
    errorCode: {
-      type: [Number, String],
-      default: 404
+      type: [String, Number],
+      default: '404'
    }
 })
 
 console.log(props.errorCode)
 
 const msg = computed(() => {
-   switch(props.errorCode) {
+   switch(props.errorCode.toString()) {
       case '403':
          return t('Bad Request')
       case '500':

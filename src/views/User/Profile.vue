@@ -28,7 +28,7 @@ const store = useStore()
 const router = useRouter()
 
 if (store.state.user.id === '0') {
-   router.push('/register')
+   router.push('/login')
 }
 
 </script>
